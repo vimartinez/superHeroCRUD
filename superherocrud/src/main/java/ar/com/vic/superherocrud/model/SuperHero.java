@@ -9,13 +9,18 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name="SuperHeroes")
 public class SuperHero {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	@NotNull(message = "El nombre no puede ser nulo")
 	private String name;
 	@Size(min = 1, max = 100000, message = "La fuerza debe estar entre 1 y 100.000")
@@ -27,10 +32,11 @@ public class SuperHero {
 	@Email(message = "La dirección de mail no es correcta")
     private String email;
 	private boolean canFly;
-	public long getId() {
+	
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
