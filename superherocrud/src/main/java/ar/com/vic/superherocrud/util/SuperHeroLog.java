@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 
 import ar.com.vic.superherocrud.enums.LogType;
 
-public class UtilLog {
-	private static Logger log = Logger.getLogger(UtilLog.class);
+public class SuperHeroLog {
+	private static Logger log = Logger.getLogger(SuperHeroLog.class);
 
 	@SuppressWarnings("rawtypes")
 	public static void registrarInfo(Class clase, LogType tipo, String mensaje)

@@ -9,6 +9,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,11 +25,11 @@ public class SuperHero {
 	private Long id;
 	@NotNull(message = "El nombre no puede ser nulo")
 	private String name;
-	@Size(min = 1, max = 100000, message = "La fuerza debe estar entre 1 y 100.000")
+	@Range(min = 1, max = 2000000, message = "La fuerza debe estar entre 1 y 100.000")
 	private Integer strength;
-	@Size(min = 1, max = 5000, message = "La velocidad debe estar entre 1 y 5.000 km/h")
+	@Range(min = 1, max = 5000, message = "La velocidad debe estar entre 1 y 5.000 km/h")
 	private Integer speed;
-	@Size(min = 1, max = 100000, message = "La salud debe estar entre 1 y 100.000")
+	@Range(min = 1, max = 500000, message = "La salud debe estar entre 1 y 100.000")
 	private Integer health;
 	@Email(message = "La dirección de mail no es correcta")
     private String email;

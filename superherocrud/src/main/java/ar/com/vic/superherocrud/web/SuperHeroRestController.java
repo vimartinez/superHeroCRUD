@@ -1,6 +1,7 @@
 package ar.com.vic.superherocrud.web;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,31 +28,32 @@ public class SuperHeroRestController {
 	@GetMapping(value = "/", produces = "application/json")
 	public @ResponseBody List<SuperHero> getAllSuperHeros() {
 		return superHeroService.getAllSuperHeros();
-	}/*
+	}
+	
 	@GetMapping(value = "/{id}")
-	public @ResponseBody SuperHero getSuperHeroById(@PathVariable("id") Integer id) {
+	public @ResponseBody Optional<SuperHero> getSuperHeroById(@PathVariable("id") Long id) {
 		return superHeroService.getSuperHeroById(id);
-	}*/
+	}
 
-	@GetMapping(value = "/name")
-	public @ResponseBody SuperHero getSuperHeroByName(@RequestParam("name") String name) {
+	@GetMapping(value = "/getSuperHeroByName/{name}")
+	public @ResponseBody Iterable<SuperHero> getSuperHeroByName(@PathVariable("name") String name) {
 		return superHeroService.getSuperHeroByName(name);
 	}
 	
-	@GetMapping(value = "/email")
-	public @ResponseBody SuperHero getSuperHeroByEmail(@RequestParam("email") String email) {
+	@GetMapping(value = "/email/{email}")
+	public @ResponseBody Iterable<SuperHero> getSuperHeroByEmail(@RequestParam("email") String email) {
 		return superHeroService.getSuperHeroByEmail(email);
 	}
 
 	@PostMapping(path = "/", produces = "application/json")
 	public @ResponseBody SuperHero addSuperHero(@RequestBody SuperHero superHero) {
 		return superHeroService.addSuperHero(superHero);
-	}/*
+	}
 	
 	@DeleteMapping(path = "/{id}", produces = "application/json")
-	public @ResponseBody String delSuperHero(@PathVariable("id") Integer id) {
+	public @ResponseBody String delSuperHero(@PathVariable("id") Long id) {
 		return superHeroService.delSuperHero(id);
-	}*/
+	}
 	
 	@PutMapping(path = "/", produces = "application/json")
 	public @ResponseBody SuperHero updSuperHero(@RequestBody SuperHero superHero) {
