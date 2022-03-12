@@ -4,7 +4,7 @@ pipeline{
     stage("build"){
       steps{
         echo "building the application"
-        mvnw package && java -jar target/superHeroCRUD-0.1.0.jar
+        sh 'mvnw package && java -jar target/superHeroCRUD-0.1.0.jar'
       }
     }
     stage("test"){
